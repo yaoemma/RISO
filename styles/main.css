@@ -293,17 +293,29 @@ section {
     display: none;
     flex-direction: column;
     cursor: pointer;
-    padding: 5px;
+    padding: 10px;
     z-index: 1001;
+    /* Taille minimale pour être cliquable sur mobile */
+    min-width: 48px;
+    min-height: 48px;
+    justify-content: center;
+    align-items: center;
+    background: rgba(242, 139, 46, 0.1);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.hamburger:hover {
+    background: rgba(242, 139, 46, 0.2);
 }
 
 .bar {
-    width: 25px;
-    height: 3px;
+    width: 28px;
+    height: 4px;
     background-color: #F28B2E;
-    margin: 3px 0;
+    margin: 4px 0;
     transition: 0.4s;
-    border-radius: 2px;
+    border-radius: 3px;
 }
 
 /* Animation du hamburger en X */
@@ -2922,8 +2934,13 @@ section {
     
     .nav-link {
         color: #2E78C0;
-        font-size: 1rem;
-        padding: 1rem;
+        font-size: 1.1rem;
+        padding: 1rem 1.5rem;
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
     }
     
     /* Hero section responsive */
@@ -3202,14 +3219,20 @@ section {
     }
     
     .flash-btn-cie {
-        padding: 0.5rem 1rem;
-        font-size: 0.75rem;
+        padding: 0.7rem 1.2rem;
+        font-size: 0.8rem;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
     }
     
     .social-icon {
-        width: 28px;
-        height: 28px;
-        font-size: 0.8rem;
+        width: 44px;
+        height: 44px;
+        font-size: 1rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
     }
     
     /* Sections */
@@ -3247,10 +3270,14 @@ section {
         font-size: 2.5rem;
     }
     
-    /* Boutons */
+    /* Boutons - Taille minimale pour mobile */
     .btn {
-        padding: 12px 20px;
-        font-size: 0.85rem;
+        padding: 15px 25px;
+        font-size: 0.9rem;
+        min-height: 48px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
     }
     
     /* Message président */
@@ -3273,8 +3300,34 @@ section {
     }
     
     .carousel-btn {
-        width: 40px;
-        height: 40px;
+        width: 48px;
+        height: 48px;
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .carousel-indicators {
+        gap: 0.8rem;
+    }
+    
+    .indicator {
+        width: 14px;
+        height: 14px;
+        min-width: 44px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .indicator::before {
+        content: '';
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: currentColor;
     }
     
     /* Timeline */
@@ -3331,6 +3384,21 @@ section {
     
     .article-image {
         height: 180px;
+    }
+    
+    .read-more-btn {
+        min-height: 48px;
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .discover-articles-btn {
+        min-height: 48px;
+        padding: 1rem 2rem;
+        font-size: 1rem;
     }
     
     /* Contact */
