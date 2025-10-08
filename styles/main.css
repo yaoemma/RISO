@@ -293,14 +293,30 @@ section {
     display: none;
     flex-direction: column;
     cursor: pointer;
+    padding: 5px;
+    z-index: 1001;
 }
 
 .bar {
     width: 25px;
     height: 3px;
-    background-color: white;
+    background-color: #F28B2E;
     margin: 3px 0;
-    transition: 0.3s;
+    transition: 0.4s;
+    border-radius: 2px;
+}
+
+/* Animation du hamburger en X */
+.hamburger.active .bar:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
 }
 
 /* Styles responsifs pour mobile */
@@ -2827,19 +2843,61 @@ section {
 /* Responsive Design pour tablettes */
 @media (max-width: 1024px) and (min-width: 769px) {
     .services-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr) !important;
         gap: 2rem;
     }
     
     .service-card {
         padding: 2rem;
     }
+    
+    .hero-container {
+        gap: 2rem;
+    }
+    
+    .hero-title {
+        font-size: 2.8rem;
+    }
+    
+    .timeline::before {
+        left: 30px;
+    }
+    
+    .timeline-item {
+        flex-direction: row !important;
+    }
+    
+    .timeline-content {
+        width: calc(100% - 100px) !important;
+        margin-left: 100px !important;
+        margin-right: 0 !important;
+    }
+    
+    .timeline-marker {
+        left: 30px;
+    }
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    /* Fix pour éviter le débordement horizontal */
+    body, html {
+        overflow-x: hidden;
+        max-width: 100vw;
+    }
+    
+    .container {
+        padding: 0 15px;
+        max-width: 100%;
+    }
+    
+    /* Navigation responsive */
     .hamburger {
         display: flex;
+    }
+    
+    .bar {
+        background-color: #F28B2E;
     }
     
     .nav-menu {
@@ -2847,87 +2905,474 @@ section {
         left: -100%;
         top: 70px;
         flex-direction: column;
-        background: rgba(46, 120, 192, 0.3);
+        background: white;
         width: 100%;
         text-align: center;
         transition: 0.3s;
-        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.15);
         padding: 2rem 0;
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
+        z-index: 999;
     }
     
     .nav-menu.active {
         left: 0;
     }
     
+    .nav-link {
+        color: #2E78C0;
+        font-size: 1rem;
+        padding: 1rem;
+    }
+    
+    /* Hero section responsive */
+    .hero {
+        padding: 80px 0 100px;
+        margin-top: 80px;
+    }
+    
     .hero-container {
         grid-template-columns: 1fr;
         text-align: center;
+        gap: 2rem;
+        padding: 0 15px;
     }
     
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 1.8rem;
+        line-height: 1.3;
     }
     
-    .about-content {
-        grid-template-columns: 1fr;
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .hero-image {
+        order: -1;
+    }
+    
+    .placeholder-image {
+        min-height: 250px;
+        padding: 2rem;
+    }
+    
+    .placeholder-image i {
+        font-size: 3rem;
+    }
+    
+    /* Message président responsive */
+    .president-welcome {
+        padding: 1rem;
+    }
+    
+    .welcome-content {
+        flex-direction: column;
+        align-items: center;
         text-align: center;
     }
     
+    .president-image {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .president-signature {
+        align-items: center;
+    }
+    
+    /* À propos responsive */
+    .about-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+    
+    .about-image {
+        order: -1;
+    }
+    
+    .about-image .placeholder-image {
+        min-height: 300px;
+    }
+    
+    /* Contact responsive */
     .contact-content {
-        grid-template-columns: 1fr;
-    }
-    
-    .stats {
-        grid-template-columns: 1fr;
-    }
-    
-    .services-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
     
+    .contact-item {
+        padding: 1rem;
+    }
+    
+    .contact-form {
+        padding: 1.5rem;
+    }
+    
+    /* Stats responsive */
+    .stats {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    /* Services responsive */
+    .services-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem;
+    }
+    
     .service-card {
-        padding: 2rem;
+        padding: 2rem 1.5rem;
     }
     
     .service-card h3 {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
     
     .service-card p {
         font-size: 0.95rem;
     }
     
-    .members-grid {
-        grid-template-columns: 1fr;
+    .service-features {
+        flex-wrap: wrap;
     }
     
+    /* Membres responsive */
+    .members-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    /* Boutons hero responsive */
     .hero-buttons {
         justify-content: center;
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+    /* Timeline responsive */
+    .timeline::before {
+        left: 20px;
+    }
+    
+    .timeline-item {
+        flex-direction: row !important;
+        margin-bottom: 2rem;
+    }
+    
+    .timeline-marker {
+        left: 20px;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .timeline-content {
+        width: calc(100% - 80px) !important;
+        margin-left: 80px !important;
+        margin-right: 0 !important;
+    }
+    
+    .timeline-number {
+        font-size: 1rem;
+    }
+    
+    /* Valeurs responsive */
+    .values-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    /* Sections padding */
+    section {
+        padding: 3rem 0;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
     }
 }
 
-@media (max-width: 480px) {
+/* Responsive pour écrans moyens (smartphones en paysage et petites tablettes) */
+@media (max-width: 640px) and (min-width: 481px) {
     .container {
-        padding: 0 15px;
+        padding: 0 12px;
     }
     
     .hero-title {
         font-size: 2rem;
     }
     
+    .hero-subtitle {
+        font-size: 1.05rem;
+    }
+    
     .section-title {
-        font-size: 2.2rem;
+        font-size: 1.8rem;
     }
     
-    .service-card,
-    .member-card {
-        padding: 2rem;
+    .services-grid {
+        grid-template-columns: 1fr !important;
     }
     
-    .btn {
-        padding: 12px 24px;
+    .events-articles-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-stats {
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .media-content {
+        height: 350px;
+    }
+    
+    .welcome-content {
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .president-image {
+        width: 90px;
+        height: 90px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px;
+        max-width: 100%;
+    }
+    
+    /* Hero pour très petits écrans */
+    .hero {
+        padding: 60px 0 80px;
+    }
+    
+    .hero-title {
+        font-size: 1.5rem;
+        line-height: 1.2;
+    }
+    
+    .hero-subtitle {
         font-size: 0.9rem;
+    }
+    
+    .hero-badge {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+    }
+    
+    .stat-number {
+        font-size: 1.5rem;
+    }
+    
+    .stat-label {
+        font-size: 0.8rem;
+    }
+    
+    /* Navigation mobile */
+    .nav-logo {
+        flex: 1;
+    }
+    
+    .logo-image {
+        height: 40px !important;
+        width: 100px !important;
+    }
+    
+    .info-bar {
+        padding: 0.5rem 0;
+        top: 60px;
+    }
+    
+    .flash-btn-cie {
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
+    }
+    
+    .social-icon {
+        width: 28px;
+        height: 28px;
+        font-size: 0.8rem;
+    }
+    
+    /* Sections */
+    section {
+        padding: 2rem 0;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+        line-height: 1.3;
+    }
+    
+    .section-subtitle {
+        font-size: 0.9rem;
+    }
+    
+    /* Cards */
+    .service-card,
+    .member-card,
+    .value-card {
+        padding: 1.5rem;
+    }
+    
+    .service-card h3,
+    .member-card h3 {
+        font-size: 1.1rem;
+    }
+    
+    .service-card p {
+        font-size: 0.9rem;
+    }
+    
+    .service-icon,
+    .member-avatar {
+        font-size: 2.5rem;
+    }
+    
+    /* Boutons */
+    .btn {
+        padding: 12px 20px;
+        font-size: 0.85rem;
+    }
+    
+    /* Message président */
+    .president-image {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .welcome-message {
+        font-size: 0.95rem;
+    }
+    
+    /* Témoignages */
+    .testimonial-card {
+        padding: 1.5rem;
+    }
+    
+    .testimonial-content p {
+        font-size: 0.95rem;
+    }
+    
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+    }
+    
+    /* Timeline */
+    .timeline-marker {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .timeline-content {
+        width: calc(100% - 60px) !important;
+        margin-left: 60px !important;
+        padding: 1rem;
+    }
+    
+    .timeline-date {
+        font-size: 0.95rem;
+    }
+    
+    .timeline-description {
+        font-size: 0.85rem;
+    }
+    
+    /* Footer */
+    .footer {
+        padding: 60px 0 20px;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    /* Media Carousel */
+    .media-content {
+        height: 250px;
+    }
+    
+    .media-info h3 {
+        font-size: 1rem;
+    }
+    
+    .media-info p {
+        font-size: 0.85rem;
+    }
+    
+    /* Articles événements */
+    .article-title {
+        font-size: 1rem;
+    }
+    
+    .article-excerpt {
+        font-size: 0.85rem;
+    }
+    
+    .article-image {
+        height: 180px;
+    }
+    
+    /* Contact */
+    .contact-item i {
+        font-size: 1.5rem;
+    }
+    
+    .contact-item h4 {
+        font-size: 0.95rem;
+    }
+    
+    .contact-item p {
+        font-size: 0.85rem;
+    }
+    
+    /* Écoles partenaires */
+    .school-logo {
+        width: 120px;
+        height: 120px;
+        padding: 10px;
+    }
+    
+    .school-info h3 {
+        font-size: 1.5rem;
+    }
+    
+    .school-info h4 {
+        font-size: 0.95rem;
+    }
+    
+    /* Partenaires */
+    .partner-logo {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .partner-logo i {
+        font-size: 1.5rem;
+    }
+    
+    .partner-card h4 {
+        font-size: 1.1rem;
     }
 } 
 
