@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum d'Échange - RISO</title>
+    <link rel="stylesheet" href="styles/main.css?v=3&t=20241220">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/forum.css">
+</head>
+<body>
+    <!-- Barre de navigation principale -->
+    <nav class="navbar-main">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="images/logo/logo-riso.png" alt="Logo RISO" class="logo-image">
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-home"></i>
+                        Accueil
+                    </a>
+                </li>
+                <li class="nav-divider"></li>
+                <li class="nav-item dropdown">
+                    <a href="#apropos" class="nav-link dropdown-toggle">
+                        <i class="fas fa-users"></i>
+                        Qui Sommes-nous
+                        <i class="fas fa-chevron-up"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html#apropos">À propos du RISO</a></li>
+                        <li><a href="index.html#membres">Nos Spécialistes</a></li>
+                        <li><a href="index.html#histoire">Notre Histoire</a></li>
+                        <li><a href="index.html#valeurs">Nos Valeurs</a></li>
+                    </ul>
+                </li>
+                <li class="nav-divider"></li>
+                <li class="nav-item dropdown">
+                    <a href="#services" class="nav-link dropdown-toggle">
+                        <i class="fas fa-cogs"></i>
+                        Nos Activités
+                        <i class="fas fa-chevron-up"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html#orientation-academique">Orientation Académique</a></li>
+                        <li><a href="index.html#orientation-professionnelle">Orientation Professionnelle</a></li>
+                        <li><a href="index.html#bilan-competences">Bilan de Compétences</a></li>
+                        <li><a href="index.html#mentorat">Mentorat</a></li>
+                    </ul>
+                </li>
+                <li class="nav-divider"></li>
+                <li class="nav-item">
+                    <a href="forum-echange.html" class="nav-link">
+                        <i class="fas fa-comments"></i>
+                        Forum d'Échange
+                    </a>
+                </li>
+                <li class="nav-divider"></li>
+                <li class="nav-item">
+                    <a href="index.html#contact" class="nav-link">
+                        <i class="fas fa-envelope"></i>
+                        Contact
+                    </a>
+                </li>
+                <li class="nav-divider"></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Barre d'information secondaire -->
+    <div class="info-bar">
+        <div class="info-container">
+            <div class="social-media">
+                <a href="https://www.facebook.com/share/1ASkyK6UmB/" class="social-icon facebook" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://whatsapp.com/channel/0029VacAT6D96H4Xi4HZMk00" class="social-icon whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section Hero Forum -->
+    <section class="forum-hero">
+        <div class="container">
+            <div class="forum-hero-content">
+                <div class="forum-hero-badge">
+                    <i class="fas fa-comments"></i>
+                    <span>Espace d'Échange</span>
+                </div>
+                <h1 class="forum-hero-title">Forum d'Échange RISO</h1>
+                <p class="forum-hero-subtitle">Posez vos questions et obtenez des réponses de nos spécialistes en orientation</p>
+                
+                <div class="forum-stats">
+                    <div class="forum-stat">
+                        <span class="stat-number">150+</span>
+                        <span class="stat-label">Questions posées</span>
+                    </div>
+                    <div class="forum-stat">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Spécialistes actifs</span>
+                    </div>
+                    <div class="forum-stat">
+                        <span class="stat-number">95%</span>
+                        <span class="stat-label">Questions résolues</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Forum Principal -->
+    <section class="forum-main">
+        <div class="container">
+            <div class="forum-layout">
+                <!-- Sidebar -->
+                <aside class="forum-sidebar">
+                    <div class="sidebar-section">
+                        <h3><i class="fas fa-filter"></i> Filtres</h3>
+                        <div class="filter-options">
+                            <label class="filter-option">
+                                <input type="checkbox" value="orientation">
+                                <span>Orientation</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="formation">
+                                <span>Formation</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="emploi">
+                                <span>Emploi</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="bilan">
+                                <span>Bilan de compétences</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <h3><i class="fas fa-chart-bar"></i> Statistiques</h3>
+                        <div class="stats-widget">
+                            <div class="stat-item">
+                                <span class="stat-label">Questions du jour</span>
+                                <span class="stat-value">12</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Réponses du jour</span>
+                                <span class="stat-value">28</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Spécialistes en ligne</span>
+                                <span class="stat-value">8</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <h3><i class="fas fa-star"></i> Top Spécialistes</h3>
+                        <div class="top-specialists">
+                            <div class="specialist-item">
+                                <div class="specialist-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="specialist-info">
+                                    <span class="specialist-name">Dr. Kouamé</span>
+                                    <span class="specialist-field">Orientation Académique</span>
+                                </div>
+                            </div>
+                            <div class="specialist-item">
+                                <div class="specialist-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="specialist-info">
+                                    <span class="specialist-name">Mme. Traoré</span>
+                                    <span class="specialist-field">Insertion Professionnelle</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Contenu Principal -->
+                <main class="forum-content">
+                    <!-- Barre d'actions -->
+                    <div class="forum-actions">
+                        <button class="btn btn-primary" id="askQuestionBtn">
+                            <i class="fas fa-plus"></i>
+                            Poser une Question
+                        </button>
+                        <div class="forum-search">
+                            <input type="text" placeholder="Rechercher une question..." id="searchInput">
+                            <button class="search-btn">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Liste des Questions -->
+                    <div class="questions-list">
+                        <!-- Question 1 -->
+                        <article class="question-card">
+                            <div class="question-header">
+                                <div class="question-meta">
+                                    <span class="question-author">
+                                        <i class="fas fa-user"></i>
+                                        Étudiant en Droit
+                                    </span>
+                                    <span class="question-date">
+                                        <i class="fas fa-clock"></i>
+                                        Il y a 2 heures
+                                    </span>
+                                    <span class="question-category">
+                                        <i class="fas fa-tag"></i>
+                                        Orientation
+                                    </span>
+                                </div>
+                                <div class="question-status answered">
+                                    <i class="fas fa-check-circle"></i>
+                                    Résolue
+                                </div>
+                            </div>
+                            <div class="question-content">
+                                <h3 class="question-title">Quelle spécialisation choisir en Droit après la licence ?</h3>
+                                <p class="question-text">Bonjour, je suis en L3 Droit et je ne sais pas quelle spécialisation choisir. J'hésite entre le Droit des Affaires et le Droit Public. Quels sont les débouchés pour chaque option ?</p>
+                            </div>
+                            <div class="question-stats">
+                                <span class="stat">
+                                    <i class="fas fa-eye"></i>
+                                    45 vues
+                                </span>
+                                <span class="stat">
+                                    <i class="fas fa-comment"></i>
+                                    3 réponses
+                                </span>
+                                <span class="stat">
+                                    <i class="fas fa-thumbs-up"></i>
+                                    12 votes
+                                </span>
+                            </div>
+                            <div class="question-actions">
+                                <button class="btn btn-outline">
+                                    <i class="fas fa-eye"></i>
+                                    Voir les réponses
+                                </button>
+                                <button class="btn btn-outline">
+                                    <i class="fas fa-share"></i>
+                                    Partager
+                                </button>
+                            </div>
+                        </article>
+
+                        <!-- Question 2 -->
+                        <article class="question-card">
+                            <div class="question-header">
+                                <div class="question-meta">
+                                    <span class="question-author">
+                                        <i class="fas fa-user"></i>
+                                        Étudiant en Informatique
+                                    </span>
+                                    <span class="question-date">
+                                        <i class="fas fa-clock"></i>
+                                        Il y a 4 heures
+                                    </span>
+                                    <span class="question-category">
+                                        <i class="fas fa-tag"></i>
+                                        Formation
+                                    </span>
+                                </div>
+                                <div class="question-status pending">
+                                    <i class="fas fa-clock"></i>
+                                    En attente
+                                </div>
+                            </div>
+                            <div class="question-content">
+                                <h3 class="question-title">Formation continue en développement web : quel cursus choisir ?</h3>
+                                <p class="question-text">Je suis développeur junior et je souhaite me spécialiser. Entre un bootcamp intensif et une formation universitaire, que me conseillez-vous ?</p>
+                            </div>
+                            <div class="question-stats">
+                                <span class="stat">
+                                    <i class="fas fa-eye"></i>
+                                    23 vues
+                                </span>
+                                <span class="stat">
+                                    <i class="fas fa-comment"></i>
+                                    0 réponses
+                                </span>
+                                <span class="stat">
+                                    <i class="fas fa-thumbs-up"></i>
+                                    5 votes
+                                </span>
+                            </div>
+                            <div class="question-actions">
+                                <button class="btn btn-primary">
+                                    <i class="fas fa-reply"></i>
+                                    Répondre
+                                </button>
+                                <button class="btn btn-outline">
+                                    <i class="fas fa-share"></i>
+                                    Partager
+                                </button>
+                            </div>
+                        </article>
+
+                        <!-- Question 3 -->
+                        <article class="question-card">
+                            <div class="question-header">
+                                <div class="question-meta">
+                                    <span class="question-author">
+                                        <i class="fas fa-user"></i>
+                                        Étudiant en Économie
+                                    </span>
+                                    <span class="question-date">
+                                        <i class="fas fa-clock"></i>
+                                        Il y a 1 jour
+                                    </span>
+                                    <span class="question-category">
+                                        <i class="fas fa-tag"></i>
+                                        Emploi
+                                    </span>
+                                </div>
+                                <div class="question-status answered">
+                                    <i class="fas fa-check-circle"></i>
+                                    Résolue
+                                </div>
+                            </div>
+                            <div class="question-content">
+                                <h3 class="question-title">Comment rédiger un CV efficace pour un stage en entreprise ?</h3>
+                                <p class="question-text">Je cherche un stage en entreprise mais je ne sais pas comment mettre en valeur mon parcours académique. Avez-vous des conseils pour rédiger un CV attractif ?</p>
+                            </div>
+                            <div class="question-stats">
+                                <span class="stat">
+                                    <i class="fas fa-eye"></i>
+                                    67 vues
+                                </span>
+                                <span class="stat">
+                                    <i class="fas fa-comment"></i>
+                                    5 réponses
+                                </span>
+                                <span class="stat">
+                                    <i class="fas fa-thumbs-up"></i>
+                                    18 votes
+                                </span>
+                            </div>
+                            <div class="question-actions">
+                                <button class="btn btn-outline">
+                                    <i class="fas fa-eye"></i>
+                                    Voir les réponses
+                                </button>
+                                <button class="btn btn-outline">
+                                    <i class="fas fa-share"></i>
+                                    Partager
+                                </button>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="forum-pagination">
+                        <button class="pagination-btn" disabled>
+                            <i class="fas fa-chevron-left"></i>
+                            Précédent
+                        </button>
+                        <div class="pagination-numbers">
+                            <button class="pagination-number active">1</button>
+                            <button class="pagination-number">2</button>
+                            <button class="pagination-number">3</button>
+                            <span class="pagination-ellipsis">...</span>
+                            <button class="pagination-number">10</button>
+                        </div>
+                        <button class="pagination-btn">
+                            Suivant
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal pour poser une question -->
+    <div id="askQuestionModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Poser une Question</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="askQuestionForm">
+                    <div class="form-group">
+                        <label for="questionText">Votre question *</label>
+                        <textarea id="questionText" name="text" rows="6" required placeholder="Posez votre question ici..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="questionCategory">Type de question *</label>
+                        <select id="questionCategory" name="category" required>
+                            <option value="">Sélectionnez le type</option>
+                            <option value="orientation">Orientation</option>
+                            <option value="formation">Formation</option>
+                            <option value="emploi">Emploi</option>
+                            <option value="bilan">Bilan de compétences</option>
+                            <option value="autre">Autre</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline" id="cancelQuestion">Annuler</button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Publier la Question
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="scripts/forum-basic.js"></script>
+</body>
+</html>
