@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
     const navbar = document.querySelector('.navbar-main');
+    const menuOverlay = document.querySelector('.menu-overlay');
+    const body = document.body;
 
     // Effet de transparence au défilement
     window.addEventListener('scroll', function() {
@@ -13,17 +15,44 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Fonction pour ouvrir le menu
+    function openMenu() {
+        hamburger.classList.add('active');
+        navMenu.classList.add('active');
+        menuOverlay.classList.add('active');
+        body.style.overflow = 'hidden'; // Empêche le scroll quand menu ouvert
+    }
+
+    // Fonction pour fermer le menu
+    function closeMenu() {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        menuOverlay.classList.remove('active');
+        body.style.overflow = ''; // Réactive le scroll
+    }
+
+    // Toggle menu au clic sur hamburger
     hamburger.addEventListener('click', function() {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
+        if (navMenu.classList.contains('active')) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
     });
+
+    // Fermer le menu en cliquant sur l'overlay
+    menuOverlay.addEventListener('click', closeMenu);
 
     // Fermer le menu en cliquant sur un lien
     document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-        });
+        link.addEventListener('click', closeMenu);
+    });
+
+    // Fermer le menu avec la touche Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+            closeMenu();
+        }
     });
 
 

@@ -174,10 +174,10 @@ Les couleurs principales sont définies dans `styles/main.css` :
 
 Pour toute question ou suggestion concernant ce projet :
 
-- **Email** : contact@riso.ci
-- **Développeur** : [Votre nom/équipe]
-- **Version** : 1.0.0
-- **Dernière mise à jour** : Décembre 2024
+- **Email** : riso-orientation.ci@gmail.com
+- **Horaires** : 24h sur 24 - Disponible tous les jours
+- **Version** : 6.0.0
+- **Dernière mise à jour** : Octobre 2025
 
 ## 📄 Licence
 

@@ -2,13 +2,19 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="theme-color" content="#2E78C0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <title>RISO - Réseau Ivoirien des Spécialistes de l'Orientation</title>
-    <link rel="stylesheet" href="styles/main.css?v=5.0&visibility=fixed">
+    <link rel="stylesheet" href="styles/main.css?v=8.0&flash=added">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <!-- Overlay pour menu mobile -->
+    <div class="menu-overlay"></div>
+    
     <!-- Barre de navigation principale (orange) -->
     <nav class="navbar-main">
         <div class="nav-container">
@@ -102,11 +108,13 @@
                 <button class="flash-btn-cie">
                     <i class="fas fa-bolt"></i>
                     Flash info
-                    <div class="scroll-arrows">
-                        <i class="fas fa-chevron-left"></i>
-                        <i class="fas fa-chevron-right"></i>
-                    </div>
                 </button>
+                <div class="flash-content">
+                    <div class="flash-scroll">
+                        <span class="flash-text">🎯 FORUM DE L'ORIENTATION ET DE LA RECONVERSION PROFESSIONNELLE (FOR) - Bientôt disponible !</span>
+                        <span class="flash-text">🎯 FORUM DE L'ORIENTATION ET DE LA RECONVERSION PROFESSIONNELLE (FOR) - Bientôt disponible !</span>
+                    </div>
+                </div>
             </div>
             <div class="social-media">
                 <a href="https://www.facebook.com/share/1ASkyK6UmB/" class="social-icon facebook" target="_blank">
@@ -456,6 +464,61 @@
                 <a href="#contact" class="btn btn-primary">Nous Contacter</a>
                 <a href="#apropos" class="btn btn-secondary">En Savoir Plus</a>
             </div>
+            
+            <!-- Détails sur les services d'orientation -->
+            <div class="service-details-section">
+                <h3 class="details-title"><i class="fas fa-info-circle"></i> Le Service d'Orientation Scolaire et Professionnelle</h3>
+                <p class="details-intro">Le service d'orientation scolaire et professionnelle vise à aider les élèves et les étudiants à prendre des décisions éclairées concernant leur parcours scolaire et professionnel.</p>
+                
+                <div class="details-grid">
+                    <!-- Missions -->
+                    <div class="details-card">
+                        <div class="details-icon">
+                            <i class="fas fa-flag"></i>
+                        </div>
+                        <h4>Missions</h4>
+                        <ul class="details-list">
+                            <li><i class="fas fa-chevron-right"></i> Aider les élèves et les étudiants à découvrir leurs intérêts, leurs aptitudes et leurs valeurs</li>
+                            <li><i class="fas fa-chevron-right"></i> Fournir des informations sur les différentes options scolaires et professionnelles</li>
+                            <li><i class="fas fa-chevron-right"></i> Accompagner les élèves et les étudiants dans leur processus de prise de décision</li>
+                            <li><i class="fas fa-chevron-right"></i> Favoriser l'insertion professionnelle des élèves et des étudiants</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Activités -->
+                    <div class="details-card">
+                        <div class="details-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <h4>Activités</h4>
+                        <ul class="details-list">
+                            <li><i class="fas fa-chevron-right"></i> Entretiens individuels avec les élèves et les étudiants pour discuter de leurs projets et aspirations</li>
+                            <li><i class="fas fa-chevron-right"></i> Organisation de séances d'information sur les différentes filières scolaires et professionnelles</li>
+                            <li><i class="fas fa-chevron-right"></i> Utilisation de tests et d'outils d'évaluation pour aider les élèves et les étudiants à mieux se connaître</li>
+                            <li><i class="fas fa-chevron-right"></i> Mise en relation avec des professionnels et des entreprises pour favoriser l'insertion professionnelle</li>
+                            <li><i class="fas fa-chevron-right"></i> Suivi des élèves et des étudiants après leur sortie de l'établissement scolaire</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Objectifs -->
+                    <div class="details-card">
+                        <div class="details-icon">
+                            <i class="fas fa-target"></i>
+                        </div>
+                        <h4>Objectifs</h4>
+                        <ul class="details-list">
+                            <li><i class="fas fa-chevron-right"></i> Aider les élèves et les étudiants à prendre des décisions éclairées concernant leur parcours scolaire et professionnel</li>
+                            <li><i class="fas fa-chevron-right"></i> Favoriser l'insertion professionnelle des élèves et des étudiants</li>
+                            <li><i class="fas fa-chevron-right"></i> Réduire les risques de décrochage scolaire et d'abandon des études</li>
+                            <li><i class="fas fa-chevron-right"></i> Améliorer la réussite scolaire et professionnelle des élèves et des étudiants</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="service-conclusion">
+                    <p><i class="fas fa-quote-left"></i> Le service d'orientation scolaire et professionnelle est essentiel pour aider les élèves et les étudiants à construire leur projet professionnel et à réussir leur insertion dans le monde du travail. <i class="fas fa-quote-right"></i></p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -539,6 +602,21 @@
                         <div class="vision-content">
                             <p class="vision-text">Une orientation scolaire et professionnelle de qualité.</p>
                         </div>
+                    </div>
+
+                    <!-- Objectifs du RISO -->
+                    <div class="riso-objectives">
+                        <h3><i class="fas fa-bullseye"></i> Nos Objectifs</h3>
+                        <p>Le RISO se donne comme objectifs de :</p>
+                        <ul class="objectives-list">
+                            <li><i class="fas fa-check-circle"></i> Créer un cadre référentiel de réflexion, d'échanges d'expériences professionnelles et de perfectionnement de ses membres actifs</li>
+                            <li><i class="fas fa-check-circle"></i> Participer au renforcement de capacité de ses membres</li>
+                            <li><i class="fas fa-check-circle"></i> Contribuer à l'amélioration de la qualité des pratiques de l'orientation</li>
+                            <li><i class="fas fa-check-circle"></i> Promouvoir le métier d'orientation scolaire et professionnelle</li>
+                            <li><i class="fas fa-check-circle"></i> Définir et promouvoir le respect des règles d'éthique propres à la profession afin d'en assurer sa protection</li>
+                            <li><i class="fas fa-check-circle"></i> Assister en matière d'orientation les populations en difficulté dans la limite de l'objet social et des moyens disponibles</li>
+                            <li><i class="fas fa-check-circle"></i> Favoriser toute coopération au plan national, continental et mondial avec toutes les organisations pouvant concourir au développement de l'Orientation Scolaire et Professionnelle</li>
+                        </ul>
                     </div>
 
                     <!-- Missions du RISO -->
@@ -958,7 +1036,9 @@
                         <i class="fas fa-envelope"></i>
                         <div>
                             <h4>Email</h4>
-                            <p>contact@riso.ci</p>
+                            <p>
+                                <a href="mailto:riso-orientation.ci@gmail.com" class="contact-link">riso-orientation.ci@gmail.com</a>
+                            </p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -992,7 +1072,7 @@
                         <i class="fas fa-clock"></i>
                         <div>
                             <h4>Horaires</h4>
-                            <p>Lun-Ven: 8h-17h | Sam: 9h-13h</p>
+                            <p><strong>24h sur 24</strong> - Disponible tous les jours</p>
                         </div>
                     </div>
                     <div class="contact-cta">

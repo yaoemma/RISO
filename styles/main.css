@@ -8,6 +8,29 @@
 /* Prévention du débordement horizontal */
 html {
     overflow-x: hidden;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Overlay pour menu mobile (comme les sites modernes) */
+.menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    z-index: 998;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.menu-overlay.active {
+    display: block;
+    opacity: 1;
 }
 
 img, video {
@@ -397,6 +420,30 @@ section {
         flex-direction: column;
         gap: 1rem;
         text-align: center;
+        padding: 0 10px;
+    }
+    
+    .flash-info {
+        width: 100%;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .flash-btn-cie {
+        border-radius: 20px;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .flash-content {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 20px;
+        padding: 0.6rem 1rem;
+    }
+    
+    .flash-text {
+        font-size: 0.85rem;
     }
     
     .social-media {
@@ -427,6 +474,9 @@ section {
 .flash-info {
     display: flex;
     align-items: center;
+    flex: 1;
+    gap: 0;
+    overflow: hidden;
 }
 
 .flash-btn-cie {
@@ -446,18 +496,8 @@ section {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
     text-transform: uppercase;
     letter-spacing: 0.5px;
-}
-
-.flash-btn-cie::after {
-    content: '';
-    position: absolute;
-    right: -18px;
-    top: 0;
-    width: 0;
-    height: 0;
-    border-left: 18px solid #2E78C0;
-    border-top: 18px solid transparent;
-    border-bottom: 18px solid transparent;
+    flex-shrink: 0;
+    z-index: 2;
 }
 
 .flash-btn-cie:hover {
@@ -465,19 +505,44 @@ section {
     transform: translateY(-1px);
 }
 
-.flash-btn-cie:hover::after {
-    border-left-color: #1e5a8a;
+/* Contenu défilant du flash info */
+.flash-content {
+    flex: 1;
+    background: linear-gradient(90deg, #2E78C0 0%, #F28B2E 100%);
+    padding: 0.7rem 1.5rem;
+    border-radius: 0 30px 30px 0;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    max-width: 600px;
 }
 
-.scroll-arrows {
+.flash-scroll {
     display: flex;
-    gap: 0.25rem;
-    margin-left: 0.5rem;
+    gap: 3rem;
+    animation: scroll-left 20s linear infinite;
+    white-space: nowrap;
 }
 
-.scroll-arrows i {
-    font-size: 0.7rem;
-    opacity: 0.8;
+.flash-text {
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.3px;
+    display: inline-block;
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.flash-scroll:hover {
+    animation-play-state: paused;
 }
 
 .social-media {
@@ -684,6 +749,64 @@ section {
     background: #ffffff;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles pour les objectifs du RISO */
+.riso-objectives {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    border-left: 4px solid #28a745;
+}
+
+.riso-objectives h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+}
+
+.riso-objectives h3 i {
+    color: #28a745;
+    margin-right: 0.5rem;
+}
+
+.riso-objectives > p {
+    font-weight: 500;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.objectives-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.objectives-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    padding: 0.8rem;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.objectives-list li:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.objectives-list li i {
+    color: #28a745;
+    margin-right: 0.8rem;
+    margin-top: 0.2rem;
+    font-size: 1rem;
+    flex-shrink: 0;
 }
 
 /* Styles pour les missions du RISO */
@@ -1933,6 +2056,151 @@ section {
     background: linear-gradient(to bottom, rgba(46, 120, 192, 0.1), transparent);
 }
 
+/* Section détails des services */
+.service-details-section {
+    margin-top: 5rem;
+    padding: 3rem;
+    background: rgba(248, 249, 250, 0.5);
+    border-radius: 20px;
+    border: 2px solid rgba(46, 120, 192, 0.1);
+}
+
+.details-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2E78C0;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.details-title i {
+    color: #F28B2E;
+}
+
+.details-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.details-card {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border-top: 4px solid #2E78C0;
+}
+
+.details-card:nth-child(2) {
+    border-top-color: #F28B2E;
+}
+
+.details-card:nth-child(3) {
+    border-top-color: #28a745;
+}
+
+.details-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.details-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #2E78C0, #F28B2E);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.details-card:nth-child(2) .details-icon {
+    background: linear-gradient(135deg, #F28B2E, #e67e22);
+}
+
+.details-card:nth-child(3) .details-icon {
+    background: linear-gradient(135deg, #28a745, #20c997);
+}
+
+.details-icon i {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.details-card h4 {
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+}
+
+.details-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.details-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    padding: 0.5rem 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+.details-list li i {
+    color: #2E78C0;
+    margin-right: 0.8rem;
+    margin-top: 0.3rem;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+}
+
+.service-conclusion {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(46, 120, 192, 0.1), rgba(242, 139, 46, 0.1));
+    border-radius: 15px;
+    text-align: center;
+    border: 2px solid rgba(46, 120, 192, 0.2);
+}
+
+.service-conclusion p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #2c3e50;
+    font-style: italic;
+    margin: 0;
+}
+
+.service-conclusion i {
+    color: #F28B2E;
+    font-size: 1rem;
+    opacity: 0.7;
+}
+
 .section-header {
     text-align: center;
     margin-bottom: 4rem;
@@ -3122,6 +3390,57 @@ section {
     .section-subtitle {
         font-size: 1rem;
     }
+    
+    /* Service details responsive */
+    .service-details-section {
+        padding: 2rem 1.5rem;
+        margin-top: 3rem;
+    }
+    
+    .details-title {
+        font-size: 1.5rem;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .details-intro {
+        font-size: 1rem;
+    }
+    
+    .details-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .details-card {
+        padding: 1.5rem;
+    }
+    
+    .details-card h4 {
+        font-size: 1.2rem;
+    }
+    
+    .details-list li {
+        font-size: 0.9rem;
+    }
+    
+    .service-conclusion {
+        padding: 1.5rem;
+    }
+    
+    .service-conclusion p {
+        font-size: 1rem;
+    }
+    
+    /* Objectifs RISO responsive */
+    .riso-objectives {
+        padding: 1.5rem 1rem;
+    }
+    
+    .objectives-list li {
+        font-size: 0.9rem;
+        padding: 0.6rem;
+    }
 }
 
 /* Responsive pour écrans moyens (smartphones en paysage et petites tablettes) */
@@ -3218,12 +3537,32 @@ section {
         top: 60px;
     }
     
+    .flash-info {
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+    }
+    
     .flash-btn-cie {
         padding: 0.7rem 1.2rem;
         font-size: 0.8rem;
         min-height: 44px;
         display: inline-flex;
         align-items: center;
+        border-radius: 20px;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .flash-content {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 20px;
+        padding: 0.5rem 1rem;
+    }
+    
+    .flash-text {
+        font-size: 0.75rem;
     }
     
     .social-icon {
@@ -3441,6 +3780,59 @@ section {
     
     .partner-card h4 {
         font-size: 1.1rem;
+    }
+    
+    /* Service details très petits écrans */
+    .service-details-section {
+        padding: 1.5rem 1rem;
+        margin-top: 2rem;
+    }
+    
+    .details-title {
+        font-size: 1.3rem;
+    }
+    
+    .details-intro {
+        font-size: 0.9rem;
+    }
+    
+    .details-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .details-icon i {
+        font-size: 1.2rem;
+    }
+    
+    .details-card h4 {
+        font-size: 1.1rem;
+    }
+    
+    .details-list li {
+        font-size: 0.85rem;
+    }
+    
+    .service-conclusion {
+        padding: 1rem;
+    }
+    
+    .service-conclusion p {
+        font-size: 0.9rem;
+    }
+    
+    /* Objectifs très petits écrans */
+    .riso-objectives {
+        padding: 1rem;
+    }
+    
+    .riso-objectives h3 {
+        font-size: 1.1rem;
+    }
+    
+    .objectives-list li {
+        font-size: 0.85rem;
+        padding: 0.5rem;
     }
 } 
 
